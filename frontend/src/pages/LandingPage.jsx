@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import homeimage from '../images/homeimg.jpg';
 import homeimage1 from '../images/homeimg1.jpg';
 import aboutimage from '../images/about.jpg'
+import croppic from '../images/aicrop.jpg'
 import { motion } from 'framer-motion';
 
 // Animation variants (same as before)

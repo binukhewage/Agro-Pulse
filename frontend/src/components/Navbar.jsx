@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { ChevronDownIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
-import logo from '../images/logogreen.png';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-scroll';
 
@@ -87,7 +86,7 @@ const Navbar = () => {
               >
                 <div className="py-1">
                   <NavLink 
-                    to="/login/buyer" 
+                    to="/buyerlogin" 
                     className="block px-4 py-2 lg:px-5 lg:py-3 text-gray-700 hover:bg-[#f0f7f1] transition-colors duration-200 flex items-center gap-3"
                     onClick={() => setShowLoginDropdown(false)}
                   >
@@ -99,7 +98,7 @@ const Navbar = () => {
                   </NavLink>
                   <div className="mx-4 h-px bg-gray-100 my-1"></div>
                   <NavLink 
-                    to="/login/officer" 
+                    to="/officerlogin" 
                     className="block px-4 py-2 lg:px-5 lg:py-3 text-gray-700 hover:bg-[#f0f7f1] transition-colors duration-200 flex items-center gap-3"
                     onClick={() => setShowLoginDropdown(false)}
                   >
@@ -154,7 +153,7 @@ const Navbar = () => {
                   </NavLink>
                   <div className="mx-4 h-px bg-gray-100 my-1"></div>
                   <NavLink 
-                    to="/signup/officer" 
+                    to="/officersignup" 
                     className="block px-4 py-2 lg:px-5 lg:py-3 text-gray-700 hover:bg-[#f0f7f1] transition-colors duration-200 flex items-center gap-3"
                     onClick={() => setShowSignupDropdown(false)}
                   >
@@ -305,7 +304,7 @@ const Navbar = () => {
                             </div>
                           </NavLink>
                           <NavLink 
-                            to="/signup/officer" 
+                            to="/officersignup" 
                             className="block px-4 py-3 text-gray-700 hover:bg-[#f0f7f1] transition-colors duration-200 rounded-lg"
                             onClick={() => {
                               setShowSignupDropdown(false);
