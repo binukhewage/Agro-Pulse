@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import loginImage from '../images/buyerpic.jpg';
 import { Link } from 'react-router-dom';
 import { ArrowLeftIcon } from '@heroicons/react/24/solid';
+import { useNavigate } from 'react-router-dom';
 
 const BuyerLogin = () => {
   const [formData, setFormData] = useState({
@@ -23,6 +24,12 @@ const BuyerLogin = () => {
     // Handle login submission
     console.log(formData);
   };
+
+  const navigate = useNavigate()
+  
+  const handlelogin = () => {
+    navigate('/buyerlanding')
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#f8faf8] to-[#478451] flex items-center justify-center py-8 px-4 sm:px-6">
@@ -125,6 +132,7 @@ const BuyerLogin = () => {
                 className="w-full bg-gradient-to-br from-[#478451] to-[#3a6d43] text-white py-2.5 px-4 rounded-lg text-sm font-medium hover:shadow-md transition-all duration-300 mt-2"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
+                onClick={handlelogin}
               >
                 Sign In
               </motion.button>
