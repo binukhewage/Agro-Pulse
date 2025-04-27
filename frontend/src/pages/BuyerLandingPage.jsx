@@ -1,8 +1,13 @@
 import React from 'react'
+import BuyerNavbar from '../components/BuyerNavbar'
 
 const BuyerLandingPage = () => {
   return (
-    <div>BuyerLandingPage</div>
+    <div>
+      <div>
+        <BuyerNavbar/>
+      </div>
+    </div>
   )
 }
 

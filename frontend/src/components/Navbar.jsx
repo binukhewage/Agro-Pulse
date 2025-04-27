@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { ChevronDownIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
+import { ChevronDownIcon, Bars3Icon, XMarkIcon, UserIcon } from '@heroicons/react/24/solid';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-scroll';
 
 const Navbar = () => {
-  const [showLoginDropdown, setShowLoginDropdown] = useState(false);
-  const [showSignupDropdown, setShowSignupDropdown] = useState(false);
+  const [showUserDropdown, setShowUserDropdown] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -57,26 +56,19 @@ const Navbar = () => {
         ))}
       </div>
 
-      {/* Auth Buttons - Desktop */}
-      <div className="hidden md:flex items-center space-x-3 lg:space-x-4">
-        {/* Login */}
+      {/* User Icon - Desktop */}
+      <div className="hidden md:flex items-center">
         <div className="relative">
           <motion.button
-            className="px-4 py-1.5 lg:px-6 lg:py-2 rounded-full text-[#2a4b32] font-medium hover:bg-[#f0f7f1] transition-all duration-300 flex items-center gap-1 lg:gap-2 border border-[#478451]/30 hover:border-[#478451]/50 group relative overflow-hidden text-sm lg:text-base"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            onClick={() => {
-              setShowLoginDropdown(!showLoginDropdown);
-              setShowSignupDropdown(false);
-            }}
+            className="p-2 rounded-full text-[#2a4b32] hover:bg-[#f0f7f1] transition-all duration-300 flex items-center justify-center border border-[#478451]/30 hover:border-[#478451]/50"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setShowUserDropdown(!showUserDropdown)}
           >
-            <span className="relative z-10">Login</span>
-            <ChevronDownIcon 
-              className={`w-3 h-3 lg:w-4 lg:h-4 text-[#478451] transition-transform duration-300 ${showLoginDropdown ? 'rotate-180' : ''} relative z-10`}
-            />
+            <UserIcon className="w-5 h-5 text-[#478451]" />
           </motion.button>
           <AnimatePresence>
-            {showLoginDropdown && (
+            {showUserDropdown && (
               <motion.div
                 className="absolute right-0 mt-2 w-56 lg:w-64 origin-top-right bg-white rounded-xl shadow-lg z-10 border border-gray-100 overflow-hidden"
                 initial={{ opacity: 0, y: -15, scale: 0.95 }}
@@ -87,80 +79,35 @@ const Navbar = () => {
                 <div className="py-1">
                   <NavLink 
                     to="/buyerlogin" 
-                    className="block px-4 py-2 lg:px-5 lg:py-3 text-gray-700 hover:bg-[#f0f7f1] transition-colors duration-200 flex items-center gap-3"
-                    onClick={() => setShowLoginDropdown(false)}
+                    className="block px-4 py-3 text-gray-700 hover:bg-[#f0f7f1] transition-colors duration-200"
+                    onClick={() => setShowUserDropdown(false)}
                   >
-                    <span className="text-base lg:text-lg">👨🏻‍🌾</span>
-                    <div>
-                      <p className="font-medium text-[#2a4b32] text-sm lg:text-base">Buyer Login</p>
-                      <p className="text-xs text-gray-500">Access marketplace</p>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-full bg-[#478451]/10 flex items-center justify-center">
+                        <UserIcon className="w-4 h-4 text-[#478451]" />
+                      </div>
+                      <div>
+                        <p className="font-medium text-[#2a4b32]">Login</p>
+                        <p className="text-xs text-gray-500">Access your account</p>
+                      </div>
                     </div>
                   </NavLink>
                   <div className="mx-4 h-px bg-gray-100 my-1"></div>
-                  <NavLink 
-                    to="/officerlogin" 
-                    className="block px-4 py-2 lg:px-5 lg:py-3 text-gray-700 hover:bg-[#f0f7f1] transition-colors duration-200 flex items-center gap-3"
-                    onClick={() => setShowLoginDropdown(false)}
-                  >
-                    <span className="text-base lg:text-lg">👨🏽‍💼</span>
-                    <div>
-                      <p className="font-medium text-[#2a4b32] text-sm lg:text-base">Officer Login</p>
-                      <p className="text-xs text-gray-500">Agriculture tools</p>
-                    </div>
-                  </NavLink>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-
-        {/* Signup */}
-        <div className="relative">
-          <motion.button
-            className="px-4 py-1.5 lg:px-6 lg:py-2 rounded-full bg-gradient-to-br from-[#478451] to-[#3a6d43] text-white font-medium hover:shadow-lg transition-all duration-300 flex items-center gap-1 lg:gap-2 shadow-md hover:shadow-[#478451]/40 group relative overflow-hidden text-sm lg:text-base"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            onClick={() => {
-              setShowSignupDropdown(!showSignupDropdown);
-              setShowLoginDropdown(false);
-            }}
-          >
-            <span className="relative z-10">Sign Up</span>
-            <ChevronDownIcon 
-              className={`w-3 h-3 lg:w-4 lg:h-4 text-white/90 transition-transform duration-300 ${showSignupDropdown ? 'rotate-180' : ''} relative z-10`}
-            />
-          </motion.button>
-          <AnimatePresence>
-            {showSignupDropdown && (
-              <motion.div
-                className="absolute right-0 mt-2 w-56 lg:w-64 origin-top-right bg-white rounded-xl shadow-lg z-10 border border-gray-100 overflow-hidden"
-                initial={{ opacity: 0, y: -15, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -15, scale: 0.95 }}
-                transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <div className="py-1">
                   <NavLink 
                     to="/buyersignup" 
-                    className="block px-4 py-2 lg:px-5 lg:py-3 text-gray-700 hover:bg-[#f0f7f1] transition-colors duration-200 flex items-center gap-3"
-                    onClick={() => setShowSignupDropdown(false)}
+                    className="block px-4 py-3 text-gray-700 hover:bg-[#f0f7f1] transition-colors duration-200"
+                    onClick={() => setShowUserDropdown(false)}
                   >
-                    <span className="text-base lg:text-lg">👨🏻‍🌾</span>
-                    <div>
-                      <p className="font-medium text-[#2a4b32] text-sm lg:text-base">Buyer Sign Up</p>
-                      <p className="text-xs text-gray-500">Join marketplace</p>
-                    </div>
-                  </NavLink>
-                  <div className="mx-4 h-px bg-gray-100 my-1"></div>
-                  <NavLink 
-                    to="/officersignup" 
-                    className="block px-4 py-2 lg:px-5 lg:py-3 text-gray-700 hover:bg-[#f0f7f1] transition-colors duration-200 flex items-center gap-3"
-                    onClick={() => setShowSignupDropdown(false)}
-                  >
-                    <span className="text-base lg:text-lg">👨🏽‍💼</span>
-                    <div>
-                      <p className="font-medium text-[#2a4b32] text-sm lg:text-base">Officer Sign Up</p>
-                      <p className="text-xs text-gray-500">Register credentials</p>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-full bg-[#478451]/10 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-[#478451]">
+                          <path fillRule="evenodd" d="M12 3.75a.75.75 0 01.75.75v6.75h6.75a.75.75 0 010 1.5h-6.75v6.75a.75.75 0 01-1.5 0v-6.75H4.5a.75.75 0 010-1.5h6.75V4.5a.75.75 0 01.75-.75z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="font-medium text-[#2a4b32]">Sign Up</p>
+                        <p className="text-xs text-gray-500">Create new account</p>
+                      </div>
                     </div>
                   </NavLink>
                 </div>
@@ -205,21 +152,23 @@ const Navbar = () => {
                 ))}
               </div>
 
-              {/* Mobile Auth Buttons */}
+              {/* Mobile User Dropdown */}
               <div className="space-y-4">
-                {/* Login Dropdown */}
                 <div className="relative">
                   <button
-                    className="w-full px-4 py-3 text-lg text-[#2a4b32] font-medium rounded-lg border border-[#478451]/30 hover:border-[#478451]/50 flex justify-between items-center"
-                    onClick={() => setShowLoginDropdown(!showLoginDropdown)}
+                    className="w-full px-4 py-3 text-lg text-[#2a4b32] font-medium rounded-lg border border-[#478451]/30 hover:border-[#478451]/50 flex items-center gap-3"
+                    onClick={() => setShowUserDropdown(!showUserDropdown)}
                   >
-                    <span>Login</span>
+                    <div className="w-8 h-8 rounded-full bg-[#478451]/10 flex items-center justify-center">
+                      <UserIcon className="w-5 h-5 text-[#478451]" />
+                    </div>
+                    <span>Account</span>
                     <ChevronDownIcon 
-                      className={`w-5 h-5 text-[#478451] transition-transform duration-300 ${showLoginDropdown ? 'rotate-180' : ''}`}
+                      className={`w-5 h-5 text-[#478451] transition-transform duration-300 ml-auto ${showUserDropdown ? 'rotate-180' : ''}`}
                     />
                   </button>
                   <AnimatePresence>
-                    {showLoginDropdown && (
+                    {showUserDropdown && (
                       <motion.div
                         className="mt-2 bg-white rounded-lg shadow-md overflow-hidden"
                         initial={{ height: 0, opacity: 0 }}
@@ -227,95 +176,42 @@ const Navbar = () => {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <div className="p-2">
+                        <div className="p-2 space-y-2">
                           <NavLink 
-                            to="/login/buyer" 
+                            to="/buyerlogin" 
                             className="block px-4 py-3 text-gray-700 hover:bg-[#f0f7f1] transition-colors duration-200 rounded-lg"
                             onClick={() => {
-                              setShowLoginDropdown(false);
+                              setShowUserDropdown(false);
                               setMobileMenuOpen(false);
                             }}
                           >
                             <div className="flex items-center gap-3">
-                              <span className="text-lg">👨🏻‍🌾</span>
+                              <div className="w-8 h-8 rounded-full bg-[#478451]/10 flex items-center justify-center">
+                                <UserIcon className="w-4 h-4 text-[#478451]" />
+                              </div>
                               <div>
-                                <p className="font-medium text-[#2a4b32]">Buyer Login</p>
-                                <p className="text-sm text-gray-500">Access marketplace</p>
+                                <p className="font-medium text-[#2a4b32]">Login</p>
+                                <p className="text-sm text-gray-500">Access your account</p>
                               </div>
                             </div>
                           </NavLink>
-                          <NavLink 
-                            to="/login/officer" 
-                            className="block px-4 py-3 text-gray-700 hover:bg-[#f0f7f1] transition-colors duration-200 rounded-lg"
-                            onClick={() => {
-                              setShowLoginDropdown(false);
-                              setMobileMenuOpen(false);
-                            }}
-                          >
-                            <div className="flex items-center gap-3">
-                              <span className="text-lg">👨🏽‍💼</span>
-                              <div>
-                                <p className="font-medium text-[#2a4b32]">Officer Login</p>
-                                <p className="text-sm text-gray-500">Agriculture tools</p>
-                              </div>
-                            </div>
-                          </NavLink>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-
-                {/* Signup Dropdown */}
-                <div className="relative">
-                  <button
-                    className="w-full px-4 py-3 text-lg text-white font-medium rounded-lg bg-gradient-to-br from-[#478451] to-[#3a6d43] flex justify-between items-center"
-                    onClick={() => setShowSignupDropdown(!showSignupDropdown)}
-                  >
-                    <span>Sign Up</span>
-                    <ChevronDownIcon 
-                      className={`w-5 h-5 text-white/90 transition-transform duration-300 ${showSignupDropdown ? 'rotate-180' : ''}`}
-                    />
-                  </button>
-                  <AnimatePresence>
-                    {showSignupDropdown && (
-                      <motion.div
-                        className="mt-2 bg-white rounded-lg shadow-md overflow-hidden"
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <div className="p-2">
                           <NavLink 
                             to="/buyersignup" 
                             className="block px-4 py-3 text-gray-700 hover:bg-[#f0f7f1] transition-colors duration-200 rounded-lg"
                             onClick={() => {
-                              setShowSignupDropdown(false);
+                              setShowUserDropdown(false);
                               setMobileMenuOpen(false);
                             }}
                           >
                             <div className="flex items-center gap-3">
-                              <span className="text-lg">👨🏻‍🌾</span>
-                              <div>
-                                <p className="font-medium text-[#2a4b32]">Buyer Sign Up</p>
-                                <p className="text-sm text-gray-500">Join marketplace</p>
+                              <div className="w-8 h-8 rounded-full bg-[#478451]/10 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-[#478451]">
+                                  <path fillRule="evenodd" d="M12 3.75a.75.75 0 01.75.75v6.75h6.75a.75.75 0 010 1.5h-6.75v6.75a.75.75 0 01-1.5 0v-6.75H4.5a.75.75 0 010-1.5h6.75V4.5a.75.75 0 01.75-.75z" clipRule="evenodd" />
+                                </svg>
                               </div>
-                            </div>
-                          </NavLink>
-                          <NavLink 
-                            to="/officersignup" 
-                            className="block px-4 py-3 text-gray-700 hover:bg-[#f0f7f1] transition-colors duration-200 rounded-lg"
-                            onClick={() => {
-                              setShowSignupDropdown(false);
-                              setMobileMenuOpen(false);
-                            }}
-                          >
-                            <div className="flex items-center gap-3">
-                              <span className="text-lg">👨🏽‍💼</span>
                               <div>
-                                <p className="font-medium text-[#2a4b32]">Officer Sign Up</p>
-                                <p className="text-sm text-gray-500">Register credentials</p>
+                                <p className="font-medium text-[#2a4b32]">Sign Up</p>
+                                <p className="text-sm text-gray-500">Create new account</p>
                               </div>
                             </div>
                           </NavLink>
