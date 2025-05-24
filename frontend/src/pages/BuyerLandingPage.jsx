@@ -99,13 +99,7 @@ const BuyerLandingPage = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-6">
                 <div>
-                  <h3 className="text-white text-2xl font-bold mb-2">Quality Produce</h3>
-                  <Link 
-                    to="/available-production" 
-                    className="text-white font-medium hover:underline flex items-center"
-                  >
-                    Browse selection <span className="ml-2">→</span>
-                  </Link>
+                  <h3 className="text-white text-xl font-bold mb-2">Quality Products</h3>
                 </div>
               </div>
             </motion.div>
@@ -122,13 +116,8 @@ const BuyerLandingPage = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-6">
                 <div>
-                  <h3 className="text-white text-2xl font-bold mb-2">Farm Direct</h3>
-                  <Link 
-                    to="/how-it-works" 
-                    className="text-white font-medium hover:underline flex items-center"
-                  >
-                    How it works <span className="ml-2">→</span>
-                  </Link>
+                  <h3 className="text-white text-xl font-bold mb-2">Direct from Farms</h3>
+                  
                 </div>
               </div>
             </motion.div>

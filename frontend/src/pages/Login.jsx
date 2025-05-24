@@ -28,7 +28,7 @@ const BuyerLogin = () => {
   const navigate = useNavigate()
   
   const handlelogin = () => {
-    navigate('/buyerlanding')
+    navigate('/officerlanding')
   }
 
   return (

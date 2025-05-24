@@ -1,13 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { UserIcon } from '@heroicons/react/24/solid'
 import { motion } from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
+import { UserIcon } from '@heroicons/react/24/solid'
 
-const BuyerNavbar = () => {
-
-  const navigate = useNavigate()
-
+const OfficerNavbar = () => {
   return (
     <nav className="fixed top-4 md:top-6 left-1/2 transform -translate-x-1/2 w-[95%] md:w-[90%] max-w-7xl py-2 px-4 sm:px-6 md:py-3 md:px-10 flex justify-between items-center bg-white shadow-lg md:shadow-xl rounded-full z-50 border border-[#478451]/10 backdrop-blur-md">
         <Link
@@ -36,7 +32,7 @@ const BuyerNavbar = () => {
             className="p-2 rounded-full text-[#2a4b32] hover:bg-[#f0f7f1] transition-all duration-300 flex items-center justify-center border border-[#478451]/30 hover:border-[#478451]/50"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => navigate('/buyerprofile')}
+            onClick={() => navigate('/officerlogin')}
           >
             <UserIcon className="w-5 h-5 text-[#478451]" />
         </motion.button>
@@ -45,4 +41,4 @@ const BuyerNavbar = () => {
   )
 }
 
-export default BuyerNavbar
+export default OfficerNavbar
