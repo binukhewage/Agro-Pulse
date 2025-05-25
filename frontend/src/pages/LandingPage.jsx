@@ -137,7 +137,7 @@ const LandingPage = () => {
                 variants={slideInFromLeft}
               >
                 <Link
-                  to="/available-production"
+                  to="/available-dashboard"
                   className="bg-[#478451] hover:bg-[#3a6d43] text-white px-6 py-3 md:px-8 md:py-4 rounded-lg font-medium transition-all duration-300 transform hover:scale-[1.02] group flex items-center shadow-lg hover:shadow-[#478451]/40 text-sm md:text-base"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
