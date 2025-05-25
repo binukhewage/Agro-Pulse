@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { ChevronDownIcon, Bars3Icon, XMarkIcon, UserIcon } from '@heroicons/react/24/solid';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-scroll';
+import logo from '../images/sltlogo.png';
 
 const Navbar = () => {
   const [showUserDropdown, setShowUserDropdown] = useState(false);
@@ -22,7 +23,7 @@ const Navbar = () => {
         whileTap={{ scale: 0.97 }}
       >
         <NavLink to="/" className="flex items-center gap-2 md:gap-3">
-          <h1 className='text-xl md:text-2xl font-bold'><span className='text-[#478451]'>Agro</span>Pulse</h1>
+          <img src={logo} alt="logo" className='h-10' />
         </NavLink>
       </motion.div>
 

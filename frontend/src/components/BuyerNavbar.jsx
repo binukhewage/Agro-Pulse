@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { UserIcon } from '@heroicons/react/24/solid'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
+import logo from '../images/sltlogo.png';
+import { NavLink } from 'react-router-dom';
 
 const BuyerNavbar = () => {
 
@@ -10,11 +12,9 @@ const BuyerNavbar = () => {
 
   return (
     <nav className="fixed top-4 md:top-6 left-1/2 transform -translate-x-1/2 w-[95%] md:w-[90%] max-w-7xl py-2 px-4 sm:px-6 md:py-3 md:px-10 flex justify-between items-center bg-white shadow-lg md:shadow-xl rounded-full z-50 border border-[#478451]/10 backdrop-blur-md">
-        <Link
-            to="/"
-        >
-            <h1 className='text-xl font-bold'>Agro<span className='text-[#478451]'>Pulse</span></h1>
-        </Link>
+        <NavLink to="/" className="flex items-center gap-2 md:gap-3">
+          <img src={logo} alt="logo" className='h-10' />
+        </NavLink>
         <div className="flex items-center space-x-4 md:space-x-6 lg:space-x-8">
         <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
         {[

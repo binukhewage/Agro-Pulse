@@ -379,7 +379,7 @@ const LandingPage = () => {
           <div className="absolute right-0 top-0 w-40 h-40 md:w-64 md:h-64 bg-white rounded-full blur-3xl"></div>
           <div className="absolute left-0 bottom-0 w-48 h-48 md:w-80 md:h-80 bg-white rounded-full blur-3xl"></div>
         </div>
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div 
             className="text-center"
