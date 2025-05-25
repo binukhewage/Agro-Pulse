@@ -110,6 +110,21 @@ const Navbar = () => {
                       </div>
                     </div>
                   </NavLink>
+                  <NavLink 
+                    to="/buyerlanding" 
+                    className="block px-4 py-3 text-gray-700 hover:bg-[#f0f7f1] transition-colors duration-200"
+                    onClick={() => setShowUserDropdown(false)}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-full bg-[#478451]/10 flex items-center justify-center">
+                        <UserIcon className="w-4 h-4 text-[#478451]" />
+                      </div>
+                      <div>
+                        <p className="font-medium text-[#2a4b32]">Buyer</p>
+                        <p className="text-xs text-gray-500">Access your account</p>
+                      </div>
+                    </div>
+                  </NavLink>
                 </div>
               </motion.div>
             )}
